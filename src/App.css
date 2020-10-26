@@ -1,15 +1,167 @@
 * {
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
+    color: #414141;
+}
+
+body {
+    background-color: #f1f1f1;
 }
 
 .app {
-  padding: 10px;
+    padding: 10px;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.app__left {
+    flex: .9;
+    flex-basis: 600px;
+    justify-content: space-evenly;
+}
+
+.app__right {
+    flex-basis: 300px;
+    padding: 10px;
+    margin-left: 10px;
+}
+
+.chart__title {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
 }
 
 .app__header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.app__stats {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.info-box {
+    flex-basis: 200px;
+    margin: 5px;
+    flex-grow: 1;
+    font-weight: 600;
+}
+
+.info-box:hover {
+    cursor: pointer;
+}
+
+.table {
+    overflow: auto;
+    height: 450px;
+    margin: 20px 0;
+}
+
+.table table {
+    width: 100%;
+}
+
+.table tr {
+    display: flex;
+    justify-content: space-between;
+    color: #6a5d5d;
+}
+
+.table td {
+    padding: .5rem;
+}
+
+.table tr:nth-last-of-type(odd) {
+    background-color: #eef1f1;
+}
+
+.chart {
+    height: 200px;
+    margin: 20px 0;
+}
+
+.map {
+    padding: 10px;
+    margin-top: 10px;
+    height: 600px;
+}
+
+.map .leaflet-container {
+    height: 100%;
+}
+
+.popup {
+    width: 200px;
+    font-size: 16px;
+}
+
+.popup div {
+    margin-bottom: 5px;
+}
+
+.popup img {
+    border-radius: 3px;
+    width: 100%;
+    object-fit: contain;
+}
+
+.popup__name {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.cases {
+   color: #ff4500;
+}
+
+.recovered {
+    color: #22a122;
+}
+
+.deaths {
+    color: #ff0000;
+}
+
+@media (max-width: 1000px) {
+    .app__left, .app__right {
+        flex-basis: 100%;
+        margin-bottom: 20px;
+    }
+
+    .app__stats {
+        justify-content: space-evenly;
+    }
+
+    .app__header {
+        justify-content: space-evenly;
+        margin-bottom: 10px;
+    }
+
+    h1 {
+        font-size: 28px;
+        margin-bottom: 5px;
+    }
+}
+
+/* Let's get this party started */
+::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #e1e1e1;
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #919191;
+    border-radius: 3px;
 }
