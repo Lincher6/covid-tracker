@@ -53,26 +53,28 @@ function App() {
             <div className="app__left">
                 <div className="app__header">
                     <h1>COVID-19 Tracker</h1>
-                    <FormControl>
-                        <Select
-                            variant="outlined"
-                            value={countryCode}
-                            onChange={onCountryChange}
-                        >
-                            <MenuItem value="worldwide">Worldwide</MenuItem>
-                            {
-                                countries.map((country, index) => (
-                                    <MenuItem
-                                        value={country.value}
-                                        key={index}
-                                    >
-                                        {country.name}
-                                    </MenuItem>
-                                ))
-                            }
+                    <div className="app__dropdown">
+                        <FormControl>
+                            <Select
+                                variant="outlined"
+                                value={countryCode}
+                                onChange={onCountryChange}
+                            >
+                                <MenuItem value="worldwide">Worldwide</MenuItem>
+                                {
+                                    countries.map((country, index) => (
+                                        <MenuItem
+                                            value={country.value}
+                                            key={index}
+                                        >
+                                            {country.name}
+                                        </MenuItem>
+                                    ))
+                                }
 
-                        </Select>
-                    </FormControl>
+                            </Select>
+                        </FormControl>
+                    </div>
                 </div>
                 <div className="app__stats">
                     <InfoBox
@@ -80,31 +82,36 @@ function App() {
                         title="Covid-19 cases"
                         cases={country.todayCases}
                         total={country.cases}
+                        type={'cases'}
+                        active={type === 'cases'}
                     />
                     <InfoBox
                         onClick={() => setType('recovered')}
                         title="Recovered"
                         cases={country.todayRecovered}
                         total={country.recovered}
+                        type={'recovered'}
+                        active={type === 'recovered'}
                     />
                     <InfoBox
                         onClick={() => setType('deaths')}
                         title="Deaths"
                         cases={country.todayDeaths}
                         total={country.deaths}
+                        type={'deaths'}
+                        active={type === 'deaths'}
                     />
                 </div>
                 <Map
                     country={country}
                     countryCode={countryCode}
                     countriesData={countriesData}
-                    type={undefined}
+                    type={type}
                 />
             </div>
             <Card className="app__right">
-                <div className="app__right-title">Live Cases by Country</div>
-                <Table countries={countriesData} />
-                <LineChart country={country} countryCode={countryCode} type={type}/>
+                <Table countriesData={countriesData} type={type} />
+                <LineChart country={countriesData} countryCode={countryCode} type={type}/>
             </Card>
 
         </div>

@@ -36,12 +36,12 @@ export const LineChart = ({country, countryCode, type = 'cases'}) => {
 
     return (
         <>
-            <div className="chart__title">
-                {countryName} {type}
+            <div className="app__right-title">
+                {countryName} {capitalize(type)}
             </div>
             <div className="chart">
                 {
-                    data &&
+                    chartData &&
                     <Line
                         data={chartData}
                         options={options}

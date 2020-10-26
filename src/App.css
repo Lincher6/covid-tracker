@@ -22,12 +22,14 @@ body {
 }
 
 .app__right {
+    display: flex;
+    flex-direction: column;
     flex-basis: 300px;
     padding: 10px;
     margin-left: 10px;
 }
 
-.chart__title {
+.app__right-title {
     font-size: 24px;
     font-weight: bold;
     text-align: center;
@@ -39,6 +41,15 @@ body {
     align-items: center;
     justify-content: space-between;
     margin-bottom: 20px;
+}
+
+.app__header h1 {
+    color: #ff0000;
+    text-shadow: -1px 1px 0 black;
+}
+
+.app__dropdown {
+    background-color: white;
 }
 
 .app__stats {
@@ -54,11 +65,23 @@ body {
     font-weight: 600;
 }
 
+.info-box__active {
+    border-top: 5px solid lightskyblue;
+
+}
+
+.info-box__count {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
 .info-box:hover {
     cursor: pointer;
 }
 
 .table {
+    flex-grow: 1;
     overflow: auto;
     height: 450px;
     margin: 20px 0;
@@ -142,6 +165,10 @@ body {
     .app__header {
         justify-content: space-evenly;
         margin-bottom: 10px;
+    }
+
+    .map {
+        height: 400px;
     }
 
     h1 {

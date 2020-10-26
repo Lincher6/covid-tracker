@@ -3,8 +3,8 @@ import {Circle, Popup} from "react-leaflet";
 import React from "react";
 import {casesTypeColors} from "./constants";
 
-export const sortData = data => {
-    return [...data].sort((a, b) => a.cases > b.cases ? -1 : 1)
+export const sortData = (data, type) => {
+    return [...data].sort((a, b) => a[type] > b[type] ? -1 : 1)
 }
 
 export const capitalize = (name) => {
