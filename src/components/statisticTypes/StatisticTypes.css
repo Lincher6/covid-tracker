@@ -1,0 +1,34 @@
+.statisticTypes {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.infoBox {
+    flex-basis: 200px;
+    margin: 5px;
+    flex-grow: 1;
+    font-weight: 600;
+}
+
+.infoBox__active {
+    border-top: 5px solid lightskyblue;
+
+}
+
+.infoBox__count {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.infoBox:hover {
+    cursor: pointer;
+}
+
+@media (max-width: 1000px) {
+    .statisticTypes {
+        justify-content: space-evenly;
+    }
+
+}

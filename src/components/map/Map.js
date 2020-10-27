@@ -1,25 +1,38 @@
 import React, {useEffect, useRef, useState} from 'react'
 import Card from "@material-ui/core/Card";
 import { Map as LeafletMap, TileLayer } from 'react-leaflet'
-import {showDataOnMap} from "../utils";
+import {useSelector} from "react-redux";
+import {selectors} from "model/selectors";
+import {MapData} from "./MapData";
+import "./Map.css"
 
 const worldCenter = [34.80746, -40.4796 ]
+const initialZoom = window.innerWidth > 1000 ? 3 : 2
 
-export const Map = ({ country, countryCode, countriesData, type = 'cases' }) => {
+export const Map = () => {
+    const country = useSelector(selectors.country)
+    const countryCode = useSelector(selectors.countryCode)
+    const countriesData = useSelector(selectors.countriesData)
+    const type = useSelector(selectors.type)
+
     const [mapCenter, setMapCenter] = useState(worldCenter);
-    const [zoom, setZoom] = useState(3)
+    const [zoom, setZoom] = useState(initialZoom)
     const map = useRef()
-    const popup = useRef()
+
 
     useEffect(() => {
+        updateMap()
+    }, [country])
+
+    const updateMap = () => {
         if (countryCode === 'worldwide') {
             setMapCenter(worldCenter)
-            setZoom(3)
+            setZoom(initialZoom)
         } else {
             setMapCenter([country.countryInfo.lat, country.countryInfo.long])
             setZoom(4)
         }
-    }, [country])
+    }
 
     const handleZoomChange = () => {
         setZoom(map.current.leafletElement.getZoom())
@@ -39,7 +52,11 @@ export const Map = ({ country, countryCode, countriesData, type = 'cases' }) => 
                     attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
 
                 />
-                {showDataOnMap(countriesData, type, zoom)}
+                <MapData
+                    data={countriesData}
+                    type={type}
+                    zoom={zoom}
+                />
             </LeafletMap>
         </Card>
     )

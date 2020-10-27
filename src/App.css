@@ -4,8 +4,18 @@
     color: #414141;
 }
 
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
 body {
     background-color: #f1f1f1;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 .app {
@@ -35,111 +45,6 @@ body {
     text-align: center;
 }
 
-.app__header {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 20px;
-}
-
-.app__header h1 {
-    color: #ff0000;
-    text-shadow: -1px 1px 0 black;
-}
-
-.app__dropdown {
-    background-color: white;
-}
-
-.app__stats {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-}
-
-.info-box {
-    flex-basis: 200px;
-    margin: 5px;
-    flex-grow: 1;
-    font-weight: 600;
-}
-
-.info-box__active {
-    border-top: 5px solid lightskyblue;
-
-}
-
-.info-box__count {
-    font-size: 24px;
-    font-weight: 700;
-    margin-bottom: 20px;
-}
-
-.info-box:hover {
-    cursor: pointer;
-}
-
-.table {
-    flex-grow: 1;
-    overflow: auto;
-    height: 450px;
-    margin: 20px 0;
-}
-
-.table table {
-    width: 100%;
-}
-
-.table tr {
-    display: flex;
-    justify-content: space-between;
-    color: #6a5d5d;
-}
-
-.table td {
-    padding: .5rem;
-}
-
-.table tr:nth-last-of-type(odd) {
-    background-color: #eef1f1;
-}
-
-.chart {
-    height: 200px;
-    margin: 20px 0;
-}
-
-.map {
-    padding: 10px;
-    margin-top: 10px;
-    height: 600px;
-}
-
-.map .leaflet-container {
-    height: 100%;
-}
-
-.popup {
-    width: 200px;
-    font-size: 16px;
-}
-
-.popup div {
-    margin-bottom: 5px;
-}
-
-.popup img {
-    border-radius: 3px;
-    width: 100%;
-    object-fit: contain;
-}
-
-.popup__name {
-    font-size: 20px;
-    font-weight: bold;
-}
-
 .cases {
    color: #ff4500;
 }
@@ -156,24 +61,6 @@ body {
     .app__left, .app__right {
         flex-basis: 100%;
         margin-bottom: 20px;
-    }
-
-    .app__stats {
-        justify-content: space-evenly;
-    }
-
-    .app__header {
-        justify-content: space-evenly;
-        margin-bottom: 10px;
-    }
-
-    .map {
-        height: 400px;
-    }
-
-    h1 {
-        font-size: 28px;
-        margin-bottom: 5px;
     }
 }
 

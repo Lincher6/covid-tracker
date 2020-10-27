@@ -1,13 +1,18 @@
 import React, {useEffect, useLayoutEffect, useState} from 'react'
+import './Table.css'
 import capitalize from "@material-ui/core/utils/capitalize";
-import {sortData} from "../utils";
+import {useDispatch, useSelector} from "react-redux";
+import {selectors} from "model/selectors";
+import {updateCountries} from "model/rootSlice";
 
-export const Table = ({ countriesData, type = 'cases' }) => {
-    const [countries, setCountries] = useState([])
+export const Table = () => {
+    const dispatch = useDispatch()
+    const countriesData = useSelector(selectors.countriesData)
+    const type = useSelector(selectors.type)
 
     useLayoutEffect(() => {
-        setCountries(sortData(countriesData, type))
-    }, [type, countriesData])
+        dispatch(updateCountries())
+    }, [type])
 
     return (
         <>
@@ -16,7 +21,7 @@ export const Table = ({ countriesData, type = 'cases' }) => {
                 <table>
                     <tbody>
                     {
-                        countries.map(({country, ...data}) => (
+                        countriesData.map(({country, ...data}) => (
                             <tr key={country}>
                                 <td>{country}</td>
                                 <td><strong>{data[type]}</strong></td>

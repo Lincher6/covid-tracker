@@ -1,0 +1,29 @@
+.header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.header h1 {
+    color: #ff0000;
+    text-shadow: -1px 1px 0 black;
+    opacity: .8;
+}
+
+.header__dropdown {
+    background-color: white;
+}
+
+@media (max-width: 1000px) {
+    .header {
+        justify-content: space-evenly;
+        margin-bottom: 10px;
+    }
+
+    h1 {
+        font-size: 28px;
+        margin-bottom: 5px;
+    }
+}

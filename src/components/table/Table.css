@@ -1,0 +1,24 @@
+.table {
+    flex-grow: 1;
+    overflow: auto;
+    height: 450px;
+    margin: 20px 0;
+}
+
+.table table {
+    width: 100%;
+}
+
+.table tr {
+    display: flex;
+    justify-content: space-between;
+    color: #6a5d5d;
+}
+
+.table td {
+    padding: .5rem;
+}
+
+.table tr:nth-last-of-type(odd) {
+    background-color: #eef1f1;
+}

@@ -1,5 +1,4 @@
 import numeral from "numeral";
-import {Circle, Popup} from "react-leaflet";
 import React from "react";
 import {casesTypeColors} from "./constants";
 
@@ -79,50 +78,4 @@ export const buildChatOptions = () => {
             ],
         },
     };
-}
-
-export const showDataOnMap = (data, type = 'cases', zoom = 3) => {
-    const zoomDif = zoom > 2 ? zoom - 2 : 1
-
-    return data.map((country, index) => (
-        <Circle
-            key={index}
-            center={[country.countryInfo.lat, country.countryInfo.long]}
-            color={casesTypeColors[type].hex}
-            fillOpacity={0.4}
-            fillColor={casesTypeColors[type].hex}
-            radius={
-                (Math.sqrt(country[type]) * casesTypeColors[type].multiplier) / zoomDif
-            }
-        >
-            <Popup>
-                <div className="popup">
-                    <div>
-                        <img src={country.countryInfo.flag} alt="flag"/>
-                    </div>
-                    <div className="popup__name">
-                        {country.country}
-                    </div>
-                    <div>
-                        Cases:&nbsp;
-                        <span className="cases">
-                            {numeral(country.cases).format("0,0")}
-                        </span>
-                    </div>
-                    <div>
-                        Recovered:&nbsp;
-                        <span className="recovered">
-                            {numeral(country.recovered).format("0,0")}
-                        </span>
-                    </div>
-                    <div>
-                        Deaths:&nbsp;
-                        <span className="deaths">
-                            {numeral(country.deaths).format("0,0")}
-                        </span>
-                    </div>
-                </div>
-            </Popup>
-        </Circle>
-    ))
 }
