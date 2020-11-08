@@ -1,5 +1,5 @@
 import {createSlice} from "@reduxjs/toolkit";
-import {buildChartData, capitalize, sortData} from "../utils";
+import {buildChartData, capitalize, sortData} from "utils";
 
 
 const rootSlice = createSlice({

@@ -26,9 +26,34 @@
     cursor: pointer;
 }
 
+.total {
+    opacity: .7;
+}
+
 @media (max-width: 1000px) {
     .statisticTypes {
         justify-content: space-evenly;
     }
+}
 
+@media (max-width: 600px) {
+    .infoBox {
+        flex-basis: 100px;
+        margin: 5px;
+        flex-grow: 1;
+        font-weight: 600;
+    }
+
+    .infoBox__active {
+        border-top: 3px solid lightskyblue;
+    }
+    .infoBox__count {
+        font-size: 18px;
+        font-weight: 700;
+        margin-bottom: 5px;
+    }
+
+    .total {
+        font-size: 14px;
+    }
 }

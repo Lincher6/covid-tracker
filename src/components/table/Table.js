@@ -1,4 +1,4 @@
-import React, {useEffect, useLayoutEffect, useState} from 'react'
+import React, {useLayoutEffect} from 'react'
 import './Table.css'
 import capitalize from "@material-ui/core/utils/capitalize";
 import {useDispatch, useSelector} from "react-redux";
@@ -12,7 +12,7 @@ export const Table = () => {
 
     useLayoutEffect(() => {
         dispatch(updateCountries())
-    }, [type])
+    }, [type, dispatch])
 
     return (
         <>

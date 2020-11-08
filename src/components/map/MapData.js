@@ -2,9 +2,12 @@ import React from 'react'
 import {Circle, Popup} from "react-leaflet";
 import {casesTypeColors} from "constants.js";
 import numeral from "numeral";
+import {useDispatch} from "react-redux";
+import {changeCountry} from "../../model/thunks";
 
 export const MapData = ({ data, type = 'cases', zoom = 3 }) => {
     const zoomDif = zoom > 2 ? zoom - 2 : 1
+    const dispatch = useDispatch()
     const getRadius = (country) => (Math.sqrt(country[type]) * casesTypeColors[type].multiplier) / zoomDif
 
     return data.map((country, index) => (
@@ -15,6 +18,7 @@ export const MapData = ({ data, type = 'cases', zoom = 3 }) => {
             fillOpacity={0.4}
             fillColor={casesTypeColors[type].hex}
             radius={getRadius(country)}
+            onClick={() => dispatch(changeCountry(country.countryInfo.iso2))}
         >
             <Popup>
                 <div className="popup">

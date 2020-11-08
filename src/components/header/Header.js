@@ -6,15 +6,21 @@ import {useDispatch, useSelector} from "react-redux";
 import {selectors} from "model/selectors";
 import {changeCountry} from "model/thunks";
 import './Header.css'
+import withStyles from "@material-ui/core/styles/withStyles";
 
 export const Header = () => {
     const dispatch = useDispatch()
     const countryCode = useSelector(selectors.countryCode)
     const countries = useSelector(selectors.countries)
+    const StyledSelect = withStyles({
+        root: {
+            padding: `15px`,
+        },
+    })(Select);
 
     useEffect(() => {
         dispatch(changeCountry(countryCode))
-    }, [countryCode])
+    }, [countryCode, dispatch])
 
     const onCountryChange = e => {
         dispatch(changeCountry(e.target.value))
@@ -25,12 +31,12 @@ export const Header = () => {
             <h1>COVID-19 Tracker</h1>
             <div className="header__dropdown">
                 <FormControl>
-                    <Select
+                    <StyledSelect
                         variant="outlined"
                         value={countryCode}
                         onChange={onCountryChange}
                     >
-                        <MenuItem value="worldwide">Worldwide</MenuItem>
+                        <MenuItem value='worldwide'>Worldwide</MenuItem>
                         {
                             countries.map((country, index) => (
                                 <MenuItem
@@ -41,7 +47,7 @@ export const Header = () => {
                                 </MenuItem>
                             ))
                         }
-                    </Select>
+                    </StyledSelect>
                 </FormControl>
             </div>
         </div>

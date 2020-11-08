@@ -19,13 +19,13 @@ export const LineChart = () => {
 
     useLayoutEffect(() => {
         dispatch(getChart(countryCode))
-    }, [countryCode])
+    }, [countryCode, dispatch])
 
     useEffect(() => {
         if (rawChartData) {
             dispatch(updateChartData())
         }
-    }, [type])
+    }, [type, dispatch])
 
     return (
         <>

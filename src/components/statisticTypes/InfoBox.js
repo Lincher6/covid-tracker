@@ -23,7 +23,7 @@ export const InfoBox = ({ title, cases, total, type, active }) => {
                 <div className={`infoBox__count ${type}`}>
                     {numeral(cases).format("+0,0")}
                 </div>
-                <div>
+                <div className="total">
                     Total:    {numeral(total).format("0,0")}
                 </div>
             </CardContent>

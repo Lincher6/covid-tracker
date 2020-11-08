@@ -7,7 +7,7 @@ import {selectors} from "model/selectors";
 const types = [
     {
         type: 'cases',
-        title: "Covid-19 cases",
+        title: "Cases",
         todayType: 'todayCases'
     },
     {

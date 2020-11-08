@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import './App.css';
 import { Card } from '@material-ui/core';
 import { Table } from './components/table/Table';
@@ -15,7 +15,7 @@ function App() {
 
     useEffect(() => {
         dispatch(getCountries())
-    }, [])
+    }, [dispatch])
 
     return (
         <div className="app">
