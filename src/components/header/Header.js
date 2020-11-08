@@ -8,15 +8,20 @@ import {changeCountry} from "model/thunks";
 import './Header.css'
 import withStyles from "@material-ui/core/styles/withStyles";
 
+const StyledSelect = withStyles(theme => ({
+    root: {
+        padding: '15px',
+        [theme.breakpoints.down('xs')]: {
+            padding: '10px',
+        }
+
+    },
+}))(Select);
+
 export const Header = () => {
     const dispatch = useDispatch()
     const countryCode = useSelector(selectors.countryCode)
     const countries = useSelector(selectors.countries)
-    const StyledSelect = withStyles({
-        root: {
-            padding: `15px`,
-        },
-    })(Select);
 
     useEffect(() => {
         dispatch(changeCountry(countryCode))

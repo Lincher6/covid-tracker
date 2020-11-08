@@ -4,7 +4,18 @@ import { Card, CardContent } from '@material-ui/core'
 import numeral from "numeral";
 import {useDispatch} from "react-redux";
 import {changeType} from "model/rootSlice";
+import withStyles from "@material-ui/core/styles/withStyles";
 
+const StyledCardContent = withStyles(theme => ({
+    root: {
+        [theme.breakpoints.down('xs')]: {
+            padding: `10px`,
+            '&:last-child': {
+                paddingBottom: '15px',
+            }
+        }
+    },
+}))(CardContent);
 
 export const InfoBox = ({ title, cases, total, type, active }) => {
     const dispatch = useDispatch()
@@ -16,7 +27,7 @@ export const InfoBox = ({ title, cases, total, type, active }) => {
 
     return (
         <Card className={`infoBox ${activeClass}`} onClick={changeTypeHandler} >
-            <CardContent>
+            <StyledCardContent>
                 <div className={type}>
                     {title}
                 </div>
@@ -26,7 +37,7 @@ export const InfoBox = ({ title, cases, total, type, active }) => {
                 <div className="total">
                     Total:    {numeral(total).format("0,0")}
                 </div>
-            </CardContent>
+            </StyledCardContent>
         </Card>
     )
 }

@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     color: #414141;
+    scroll-behavior: smooth;
 }
 
 code {
@@ -18,7 +19,12 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
+.nav-button {
+    display: none;
+}
+
 .app {
+    position: relative;
     padding: 10px;
     display: flex;
     justify-content: space-evenly;
@@ -58,9 +64,45 @@ body {
 }
 
 @media (max-width: 1000px) {
+    .app {
+        padding-top: 0;
+    }
+
     .app__left, .app__right {
         flex-basis: 100%;
         margin-bottom: 20px;
+    }
+
+    .app__left {
+        display: flex;
+        justify-content: flex-start;
+        flex-direction: column;
+        height: 100vh;
+    }
+
+    .app__right {
+        margin-left: 0;
+        height: 95vh;
+    }
+
+    .nav-button {
+        display: initial;
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        font-size: 50px;
+        opacity: .3;
+        transition: opacity .2s;
+        z-index: 1001;
+    }
+
+    .nav-button:hover {
+        cursor: pointer;
+    }
+
+    .nav-button:active {
+        opacity: .7;
+        transition: opacity .2s;
     }
 }
 

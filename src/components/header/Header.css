@@ -32,3 +32,10 @@
         margin-bottom: -10px;
     }
 }
+
+@media (max-width: 600px) {
+    .header h1 {
+        text-align: center;
+        width: 100%;
+    }
+}
