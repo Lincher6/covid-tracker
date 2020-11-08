@@ -6,6 +6,7 @@
 
 .map .leaflet-container {
     height: 100%;
+    box-sizing: border-box;
 }
 
 .popup {

@@ -19,7 +19,6 @@ export const Map = () => {
     const [zoom, setZoom] = useState(initialZoom)
     const map = useRef()
 
-
     useEffect(() => {
         updateMap()
     }, [country])

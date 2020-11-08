@@ -22,3 +22,9 @@
 .table tr:nth-last-of-type(odd) {
     background-color: #eef1f1;
 }
+
+@media (max-width: 1000px) {
+    .table {
+        margin: 0 10px;
+    }
+}

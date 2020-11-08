@@ -1,0 +1,36 @@
+.nav-button {
+    display: none;
+}
+
+@media (max-width: 1000px) {
+    .nav-button:hover {
+        cursor: pointer;
+    }
+
+    .nav-button:active {
+        opacity: .7;
+        transition: opacity .2s;
+    }
+
+    .nav-button {
+        display: initial;
+        position: fixed;
+        right: 30px;
+        font-size: 50px;
+        opacity: .3;
+        transition: opacity .2s;
+        z-index: 1001;
+    }
+
+    .top {
+        top: 30px;
+    }
+
+    .bottom {
+        bottom: 30px;
+    }
+
+    .hide {
+        display: none;
+    }
+}

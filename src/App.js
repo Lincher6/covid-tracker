@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react'
+import React, {useEffect, useRef} from 'react'
 import './App.css';
-import { Card, Button } from '@material-ui/core';
+import { Card } from '@material-ui/core';
 import { Table } from './components/table/Table';
 import "leaflet/dist/leaflet.css";
 import {Map} from "./components/map/Map";
@@ -9,6 +9,7 @@ import {getCountries} from "./model/thunks";
 import {Header} from "./components/header/Header";
 import {StatisticTypes} from "./components/statisticTypes/StatisticTypes";
 import {LineChart} from "./components/chart/LineChart";
+import {Controls} from "./components/controls/Controls";
 
 function App() {
     const dispatch = useDispatch()
@@ -28,12 +29,7 @@ function App() {
                 <Table />
                 <LineChart/>
             </Card>
-            <div
-                className="nav-button"
-                onClick={() => window.scrollTo(0,window.innerHeight)}
-            >
-                <i className="fas fa-arrow-circle-down"></i>
-            </div>
+            <Controls/>
         </div>
     );
 }

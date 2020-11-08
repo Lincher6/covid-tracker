@@ -2,3 +2,9 @@
     height: 200px;
     margin: 20px 0;
 }
+
+@media (max-width: 1000px) {
+    .chart {
+        margin: 5px 0;
+    }
+}
