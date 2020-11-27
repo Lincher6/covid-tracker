@@ -1,7 +1,7 @@
 import * as axios from "axios";
 
 const instance = axios.create({
-    baseURL: 'https://disease.sh/'
+    baseURL: 'https://cors-anywhere.herokuapp.com/https://disease.sh/'
 })
 
 export const covidApi = {
